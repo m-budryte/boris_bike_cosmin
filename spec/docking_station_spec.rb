@@ -6,7 +6,7 @@ describe DockingStation do
   # use a '#' before a method name
   # to imply that it is an instance
   # method. Also look: nested describes!
-  describe '#release_bike' do
+  # describe '#release_bike' do
     it 'releases a bike' do
       bike = Bike.new
       subject.dock(bike)
@@ -18,10 +18,14 @@ describe DockingStation do
       expect {subject.release_bike}.to raise_error 'No bikes available'
     end
 
-    it 'raises an error when the capacity is reached' do
-      bike = Bike.new
-      subject.dock(bike)
+    # it 'raises an error when the capacity is reached' do
+    #   bike = Bike.new
+    #   subject.dock(bike)
+    #   expect {subject.dock(Bike.new)}.to raise_error 'Capacity is reached'
+    # end
+
+    it 'only docks no more than 20 bikes' do
+      20.times { subject.dock(Bike.new) }
       expect {subject.dock(Bike.new)}.to raise_error 'Capacity is reached'
     end
-  end
 end
