@@ -25,7 +25,7 @@ describe DockingStation do
     # end
 
     it 'only docks no more than 20 bikes' do
-      20.times { subject.dock(Bike.new) }
+      DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
       expect {subject.dock(Bike.new)}.to raise_error 'Capacity is reached'
     end
 end
