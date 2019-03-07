@@ -8,6 +8,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise 'Capacity is reached' if @bike
     @bike = bike
   end
 
